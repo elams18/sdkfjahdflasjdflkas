@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import type { DashboardResponse } from "../types";
 
-const API_URL = (import.meta.env.VITE_API_URL || "http://localhost:8000").replace(/\/$/, "");
+const API_URL = (
+    import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? "http://localhost:8000" : "")
+).replace(/\/$/, "");
 
 export function useDashboardData(decisionDate: string, cutoffTime: string) {
     const [refreshKey, setRefreshKey] = useState(0);

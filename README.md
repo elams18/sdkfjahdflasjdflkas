@@ -91,9 +91,19 @@ cd backend
 uv run pytest -q
 ```
 
-## Deployment and Demo
+## Vercel Deployment
 
-Deployment is not published yet. Add the public Vercel URL here after deployment and verify it, the public GitHub repository, and the unlisted demo video in a signed-out/incognito session before submitting the form.
+The root `vercel.json` defines a Vercel Services deployment with two services. Import the repository with its root directory set to the repository root. Requests under `/api/` route to the FastAPI backend; all other paths route to the Vite frontend. The backend is public only through `/api/*` and does not need a service binding because the browser calls it through the shared public origin.
+
+In Vercel project environment settings, configure `DECISION_START_DATE`, `DECISION_END_DATE`, and `DECISION_CUTOFF_TIME` for the pilot window. `ELEXON_API_BASE_URL` is optional and defaults to the public BMRS API. Do not set `VITE_API_URL` for the Vercel deployment: the production frontend uses the same-origin `/api` route. Keep `frontend/.env` for local development, where it points directly to `http://localhost:8000`.
+
+Test the services locally from the repository root with:
+
+```sh
+vercel dev -L
+```
+
+Deployment is not published yet. After deployment, add the public Vercel URL here and verify it, the public GitHub repository, and the unlisted demo video in a signed-out/incognito session before submitting the form.
 
 The demo recording should contain a customer walkthrough and a technical review, each no longer than five minutes, with a total duration under ten minutes.
 
