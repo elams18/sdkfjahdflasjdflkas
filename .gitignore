@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Node and Vite
+node_modules/
+frontend/dist/
+frontend/node_modules/.tmp/
+npm-debug.log*
+
+# Local configuration and deployment state
+.env
+.env.*
+!.env.example
+/backend/credentials.env
+.vercel/
+
+# Operating system files
+.DS_Store

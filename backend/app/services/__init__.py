@@ -1,0 +1,1 @@
+"""Wind forecast analysis and dashboard assembly services."""
